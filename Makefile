@@ -10,4 +10,4 @@ xcode:
 
 
 clean:
-	rf -rf build 
+	rm -rf build 

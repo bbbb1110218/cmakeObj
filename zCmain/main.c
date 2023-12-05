@@ -6,6 +6,6 @@
 
 int main(){
     printf("abs(-5)=%d\n",t_abs(-5));
-    printf("add(5,6) =%d\b",add(5,6));
+    printf("add(5,6) =%d\b\n",add(5,6));
     return 0;
 }

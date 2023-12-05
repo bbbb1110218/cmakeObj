@@ -31,7 +31,7 @@ add_subdirectory(t_init)
 add_subdirectory(t_math)
 
 #TODO::using Cpp
-add_subdirectory(zCppMain)
+# add_subdirectory(zCppMain)
 
 #TODO::using C
 add_subdirectory(zCmain)

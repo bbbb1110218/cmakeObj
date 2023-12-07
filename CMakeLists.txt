@@ -29,14 +29,18 @@ set(CMAKE_CXX_STANDARD 17)
 
 # add_subdirectory(zCmain)
 
-
+#TODO::就算 加入子文件夹，也要在目标文件里面include一下头文件，而且add_executable之后要target_link_libraries一下
 add_subdirectory(t_init)
-add_subdirectory(t_math)
+# add_subdirectory(t_math)
 
 #TODO::using Cpp
-add_subdirectory(zCppMain)
+# add_subdirectory(zCppMain)
 
 #TODO::using C
+
+
+#TODO:: add UsingSTL
+add_subdirectory(UsingSTL)
 
 
 

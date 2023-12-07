@@ -3,6 +3,17 @@
 
 
 
+ 
+#ifdef __cplusplus   //include the base Head file
+    #include <iostream>
+    #define SHOW(x) std::cout << #x << " = " << x << std::endl 
+#else 
+    #include <stdio.h>
+    // #error "Can't Format the argument !!"
+    // #define SHOW(x) printf("Not define TODO")  //TODO::
+#endif
+
+
 
 #ifdef __cplusplus
 extern "C" {

@@ -27,14 +27,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 17)
 
+# add_subdirectory(zCmain)
+
 
 add_subdirectory(t_init)
 add_subdirectory(t_math)
 
 #TODO::using Cpp
-# add_subdirectory(zCppMain)
+add_subdirectory(zCppMain)
 
 #TODO::using C
-add_subdirectory(zCmain)
+
 
 

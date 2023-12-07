@@ -5,8 +5,6 @@
 
 CMAKE_CXX_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/c++
 
-CMAKE_C_COMPILER
-
 CMAKE_C_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/cc
 
-/Library/Developer/CommandLineTools/usr/bin/c++
+

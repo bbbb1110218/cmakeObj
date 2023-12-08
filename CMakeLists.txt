@@ -27,6 +27,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 17)
 
+#TODO::头文件的位置
+include_directories(/usr/local/include)
+
 # add_subdirectory(zCmain)
 
 #TODO::就算 加入子文件夹，也要在目标文件里面include一下头文件，而且add_executable之后要target_link_libraries一下
@@ -40,7 +43,11 @@ add_subdirectory(t_init)
 
 
 #TODO:: add UsingSTL
-add_subdirectory(UsingSTL)
+# add_subdirectory(UsingSTL)
+
+
+add_subdirectory(boostSTL)
+# target_include_directories()
 
 
 

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/min122218/GitHub/cmakeObj/build2/UsingQt",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -o CMakeFiles/objUseQt.dir/usingQt.cpp.o -c /Users/min122218/GitHub/cmakeObj/UsingQt/usingQt.cpp",
+  "file": "/Users/min122218/GitHub/cmakeObj/UsingQt/usingQt.cpp",
+  "output": "UsingQt/CMakeFiles/objUseQt.dir/usingQt.cpp.o"
+}
+]

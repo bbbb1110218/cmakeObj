@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <string>
 #include <t_init.h>
+#include <functional>
 
 //NOTE:: 可以是多个参数的tuple 
 //tuple<typename ... > 
@@ -14,7 +15,7 @@ std::tuple<double, char, std::string> get_student(int id) {
         case 0:
             return {3.4, 'A', std::string("hello")};
         case 1:
-            return {1.2, 'B', std::string("kitty")};
+            return {11.2, 'B', std::string("kitty")};
         case 2:
             return {0.4, 'C', std::string("hello,kitty")};
         case 3:
@@ -61,9 +62,51 @@ int main(){
     //NOTE::转换类型
     int df=static_cast<int>(std::get<0>(mayError));
     
+    auto tuple1=get_student(0);
+    auto tuple2=get_student(1);
+    
+    
+    
+    
+    if(tuple1 > tuple2){
+        tuple2=tuple1;
+    }
+    
+    std::cout << "Tuple1 " << tuple1 << "\n";
+    std::cout << "Tuple2 " << tuple2 << "\n";
+    
+    
+
+
+
+    auto tuple3=std::make_tuple<std::string,int>("age",15);
+    SHOW(std::get<1>(tuple3));
+
+    //NOTE:: 可以直接赋值
+    std::get<1>(tuple3)=5;
+    SHOW(std::get<1>(tuple3));
+    std::get<0>(tuple3)=std::string("hello,kitty");
+    SHOW(std::get<0>(tuple3));
+
+
+    std::string s("Moon");
+    auto tuple4=make_tuple(s);
+    //NOTE::modify tuple4 not s;
+    std::get<0>(tuple4)="Kitty"; 
+    SHOW(s);
+    SHOW(std::get<0>(tuple4)); 
+
+    auto tuple5=make_tuple(std::ref(s));
+    std::get<0>(tuple5)="Kitty"; 
+    SHOW(s);
+    SHOW(std::get<0>(tuple5)); 
+
 
 
     
+    
+    
+
     return 0;
 }
 

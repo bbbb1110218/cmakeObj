@@ -6,7 +6,7 @@
  
 #ifdef __cplusplus   //include the base Head file
     #include <iostream>
-    #define SHOW(x) std::cout << #x << " = " << x << std::endl 
+    #define SHOW(x) std::cout << " [ function: "<< __FUNCTION__ << "  line:"<< __LINE__ << "  ]"<< #x << " = " << x <<std::endl 
 #else 
     #include <stdio.h>
     // #error "Can't Format the argument !!"

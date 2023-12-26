@@ -33,7 +33,7 @@ include_directories(/usr/local/include)
 # add_subdirectory(zCmain)
 
 #TODO::就算 加入子文件夹，也要在目标文件里面include一下头文件，而且add_executable之后要target_link_libraries一下
-add_subdirectory(t_init)
+# add_subdirectory(t_init)
 # add_subdirectory(t_math)
 
 #TODO::using Cpp
@@ -44,10 +44,15 @@ add_subdirectory(t_init)
 
 #TODO:: add UsingSTL
 # add_subdirectory(UsingSTL)
+<<<<<<< HEAD:chapter1/CMakeLists.txt
+=======
 
 
 add_subdirectory(boostSTL)
 # target_include_directories()
 
+>>>>>>> main:CMakeLists.txt
 
 
+set(DEBUGDIR "DEBUGDIR")
+add_subdirectory(UsingQt)

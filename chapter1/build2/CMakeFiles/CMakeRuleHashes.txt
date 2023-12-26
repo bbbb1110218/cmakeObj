@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+994c6b7f48cecf6cdf0f57207c1eb72e UsingQt/CMakeFiles/ep
+da968c5436ef38f07d347e8fa4aa8ede usingQt.cc

@@ -1,3 +1,4 @@
+#不需要依赖任何文件的就是伪目标
 .PHONY: build xcode clean
 
 

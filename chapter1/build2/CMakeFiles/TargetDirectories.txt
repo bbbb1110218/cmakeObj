@@ -1,0 +1,6 @@
+/Users/min122218/GitHub/cmakeObj/build2/CMakeFiles/edit_cache.dir
+/Users/min122218/GitHub/cmakeObj/build2/CMakeFiles/rebuild_cache.dir
+/Users/min122218/GitHub/cmakeObj/build2/UsingQt/CMakeFiles/objUseQt.dir
+/Users/min122218/GitHub/cmakeObj/build2/UsingQt/CMakeFiles/ep.dir
+/Users/min122218/GitHub/cmakeObj/build2/UsingQt/CMakeFiles/edit_cache.dir
+/Users/min122218/GitHub/cmakeObj/build2/UsingQt/CMakeFiles/rebuild_cache.dir

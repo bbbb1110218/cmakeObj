@@ -15,5 +15,5 @@
 # Note::   
     用//NOTE:: 笔记的格式 高亮代码 可以复习用
     View: Move Active Editor into a New Window vscode 移动窗口
-    快捷键command+o ，command+0
+    快捷键command+k,o
     

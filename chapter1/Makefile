@@ -9,9 +9,10 @@ build:
 # sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 # xcodebuild -version
 # sudo xcodebuild -license
-
 xcode:
-	cmake -G "Xcode" -S . -BxcodeBuild -DCMAKE_CXX_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/c++ -DCMAKE_C_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/cc
+	cmake -G "Xcode" -S .  \
+	-BxcodeBuild -DCMAKE_CXX_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/c++ \
+	-DCMAKE_C_COMPILER:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/cc
 
 
 clean:

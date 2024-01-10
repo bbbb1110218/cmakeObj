@@ -1,0 +1,58 @@
+cmake_minimum_required(
+    VERSION
+    3.10.0
+)
+
+include($ENV{HOME}/app/cmake/.config.cmake)
+
+# set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+
+project(Sudoku
+    LANGUAGES C)
+
+
+add_library(
+    sudoku
+    sudoku.c
+    sudoku.h
+)
+
+add_library(
+    solvingSudoku
+    solvingSudoku.c
+    solvingSudoku.h
+)
+
+add_executable(
+    sudoku_test.out
+    main.c
+)
+
+target_link_libraries(
+    sudoku_test.out
+    sudoku
+    solvingSudoku
+)
+
+install(FILES 独数.md 
+    DESTINATION doc
+)
+
+
+file(GLOB ALL_HEADER_FILES 
+    "*.h"
+    "*.hpp"
+)
+
+
+install(FILES ${ALL_HEADER_FILES}
+    DESTINATION include
+)
+
+install(TARGETS
+    sudoku
+    sudoku_test.out
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION libstatic)
+

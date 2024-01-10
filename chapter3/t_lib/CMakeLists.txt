@@ -11,6 +11,17 @@ target_sources(t_mylib PRIVATE src/t_lib.cpp)
 
 #目标添加头文件
 target_include_directories(t_mylib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
+# SHOW(CMAKE_CURRENT_LIST_DIR)
+# SHOW(CMAKE_CURRENT_SOURCE_DIR)
+# SHOW(CMAKE_CURRENT_LIST_FILE)
+
+# set(HELLO "hello kitty str" CACHE STRING "temp var")
+# set(HELLO "hello be defined not in cache" PARENT_SCOPE)
+
+# set(HELLO "helloValue1" )
+# CURRENTSHOW(HELLO)
+# include(test.cmake)
+
 
 
 #目标连接

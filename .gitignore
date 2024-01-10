@@ -7,3 +7,4 @@ build/
 cmake-build-debug/
 .idea/
 xcodeBuild
+chapter1/build2/.cmake/api/v1/query/client-vscode-cmake-lite/query.json

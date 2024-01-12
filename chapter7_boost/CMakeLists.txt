@@ -4,6 +4,10 @@ project(testBOOST
 
 set(CMAKE_EXPORT_NO_PACKAGE_REGISTRY ON)
 
+if(LINUX)
+    include($ENV{HOME}/app/cmake/.config.cmake)
+endif()
+
 # json库
 #add_subdirectory(json)
 
@@ -12,3 +16,4 @@ set(CMAKE_EXPORT_NO_PACKAGE_REGISTRY ON)
 
 #网络库
 add_subdirectory(asio)
+# SHOW_CONFIG()

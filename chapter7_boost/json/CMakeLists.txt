@@ -17,7 +17,7 @@ set(CMAKR_EXPORT_COMPILE_COMMANDS ON)
 set(Boost_USE_STATIC_LIBS ON) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
-find_package(Boost 1.7.0 COMPONENTS json  ) 
+find_package(Boost COMPONENTS json  ) 
 
 
 if(NOT Boost_FOUND)

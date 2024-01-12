@@ -6,7 +6,9 @@
 
 const char *msg = "Service Got the message!\n";
 
-void handle_client(boost::asio::ip::tcp::socket *socket) {
+/// @brief 
+/// @param socket 
+void handle_client(boost::asio::ip::tcp::socket socket) {
     while(1){
         // 从 socket 中读取一行数据
         boost::asio::streambuf buf;
@@ -16,9 +18,15 @@ void handle_client(boost::asio::ip::tcp::socket *socket) {
         std::string data = boost::asio::buffer_cast<const char*>(buf.data());
         std::cout << data << std::endl;
 
-        boost::asio::write(*socket, boost::asio::buffer("Server Got the message!\n"));
+        boost::asio::write(socket, boost::asio::buffer("Server Got the message!\n"));
         //相应客户端
         if(data.substr(0,4) == "exit" || data.substr(0,4) == "quit" || data.substr(0,4) == "EXIT" || data.substr(0,4) == "QUIT"){
+            socket.close();
+            break;
+        }
+        if(data.substr(0,4) == "KILL" || data.substr(0,4) == "kill" || data.substr(0,4) == "Kill"){
+            std::cout << "Client exit" << std::endl;
+            //TODO::Unfinished
             break;
         }
     }
@@ -36,11 +44,9 @@ int main() {
         acceptor.accept(socket);
 
         // 创建一个新的线程处理连接
-        std::thread client_thread(handle_client, &socket);
+        std::thread client_thread(handle_client, std::move(socket));
         client_thread.detach();
-        // pthread_t t;
-        // pthread_create(&t,NULL,handle_client,socket);
-        // t.detach();
+
     }
 
     return 0;

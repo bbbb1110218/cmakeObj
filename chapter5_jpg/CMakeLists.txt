@@ -9,13 +9,19 @@ project(test_jpgLib
     DESCRIPTION "测试jpgLib"
     LANGUAGES C
 )
+if(APPLE)
+	include($ENV{HOME}/app/cmake/.config.cmake)
 
-include($ENV{HOME}/app/cmake/.config.cmake)
+	set(JEPG_INCLUDE_DIR "/opt/homebrew/opt/jpeg/include")
+	set(JEPG_LIBRARY "/opt/homebrew/opt/jpeg/lib")
+elseif(LINUX)
+	
+	include($ENV{HOME}/app/cmake/.config.cmake)
+	message(STATUS "compile ON linux")	
+endif()
 
-set(JEPG_INCLUDE_DIR "/opt/homebrew/opt/jpeg/include")
-set(JEPG_LIBRARY "/opt/homebrew/opt/jpeg/lib")
 
-# set(CMAKE_INSTALL_PREFIX "/tmp/tmp")
+set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/app")
 
 
 set(CMAKE_C_STANDARD 11)

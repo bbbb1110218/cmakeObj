@@ -4,6 +4,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
 
 int scan_tcp_port(const char *ip, int port) {
     struct sockaddr_in target;
@@ -49,11 +51,19 @@ int scan_udp_port(const char *ip, int port) {
 }
 
 int main(int argc, char *argv[]) {
+    if(strcmp(argv[1],"-h")==0 || strcmp(argv[1],"--help")==0){
+        printf("测试TCP和UDP端口是否开放\n");
+        printf("Usage: %s <IP>\n", argv[0]);
+        exit(-1);
+        // return 1;
+    }
+
     if (argc != 2) {
         fprintf(stderr, "Usage: %s <IP>\n", argv[0]);
         return 1;
     }
 
+    fprintf(stdout,"测试TCP和UDP端口是否开放,UDP一般不太好使用\n");
     const char *ip = argv[1];
     printf("Scanning TCP and UDP ports on %s...\n", ip);
 

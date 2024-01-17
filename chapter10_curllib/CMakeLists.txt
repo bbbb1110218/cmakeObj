@@ -12,33 +12,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(CURL REQUIRED)
 
 
-# add_executable(${PROJECT_NAME}.out)
-
-
-
-# target_sources(${PROJECT_NAME}.out
-#     PRIVATE
-#         src/main2.c
-#     )
-
-# #如果库没找到
-# if(NOT CURL_FOUND)
-#     message(FATAL_ERROR "CURL not found")
-# endif()
-
-# #设置头文件路径
-# target_include_directories(${PROJECT_NAME}.out
-#     PRIVATE
-#         ${CURL_INCLUDE_DIRS}
-#     )
-# #设置链接库
-# target_link_libraries(${PROJECT_NAME}.out
-#     PRIVATE
-#         ${CURL_LIBRARIES}
-# )
 
 # TODO 设置要编译的文件  有函数可以直接编译全部
-set(SRC_LIST main.c detectedLanguageTrans.c deepLcurl.c)
+set(SRC_LIST main.c deepl.c)
 
 
 function(MAKE_EXEC ARG)
@@ -69,21 +45,6 @@ endforeach()
 
 
 
-
-
-
-
-
-
-
-
-
-
-# execute_process(
-#     COMMAND curl-config --cflags
-#     OUTPUT_VARIABLE CURL_CFLAGS
-#     OUTPUT_STRIP_TRAILING_WHITESPACE
-#     )
 
 
 get_filename_component(SRC_FILE src/main.c ABSOLUTE)
@@ -121,7 +82,7 @@ target_compile_definitions(deepl
 
 target_sources(deepl
     PRIVATE
-        ${CMAKE_SOURCE_DIR}/src/detectedLanguageTrans.c
+        ${CMAKE_SOURCE_DIR}/src/deepl.c
 )
 
 target_include_directories(deepl

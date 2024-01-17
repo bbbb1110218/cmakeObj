@@ -38,7 +38,7 @@ find_package(CURL REQUIRED)
 # )
 
 # TODO 设置要编译的文件  有函数可以直接编译全部
-set(SRC_LIST main.c deepLcurl.c)
+set(SRC_LIST main.c)
 
 
 function(MAKE_EXEC ARG)
@@ -52,6 +52,10 @@ function(MAKE_EXEC ARG)
     target_link_libraries(${EXEC_NAME}.out
         PRIVATE
             ${CURL_LIBRARIES}
+        )
+    target_compile_definitions(${EXEC_NAME}.out
+        PRIVATE
+            DEEPLAPI=${DEEPLAPI}
         )
 endfunction()
 
@@ -96,14 +100,40 @@ add_custom_command(
 add_custom_target(preprocess DEPENDS ${PREPROCESS_FILE})
 
 
-install(TARGETS deepLcurl.out
-    RENAME deepl
-    RUNTIME DESTINATION bin 
+# install(TARGETS deepLcurl.out
+#     RENAME deepl
+#     RUNTIME DESTINATION bin 
     
-)
+# )
 
 
 # not mac
 if(LINUX)
     set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/app")
 endif()
+
+add_executable(deepl)
+
+target_compile_definitions(deepl
+    PRIVATE
+        DEEPLAPI=$ENV{DEEPLAPI}
+)
+
+target_sources(deepl
+    PRIVATE
+        ${CMAKE_SOURCE_DIR}/src/deepLcurl.c
+)
+
+target_include_directories(deepl
+    PRIVATE
+        ${CURL_INCLUDE_DIRS}
+)
+target_link_libraries(
+    deepl 
+    PRIVATE
+        ${CURL_LIBRARIES}
+)
+
+install(TARGETS deepl
+    RUNTIME DESTINATION bin 
+)

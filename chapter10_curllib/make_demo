@@ -1,7 +1,8 @@
 
 default:
-	cmake -S. -Bbuild 
+	cmake -S. -Bbuild -DDEEPLAPI="Authorization: DeepL-Auth-Key e8ad9dbd-17a0-9e73-615b-1acac4947e08:fx"
 
 
 clean:
 	if [ -d build ]; then rm -rf build ; fi
+.PHONY:default clean

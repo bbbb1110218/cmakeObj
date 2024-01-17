@@ -3,6 +3,13 @@
 #include <curl/curl.h>
 #include <stdlib.h>
 
+#if !defined(DEEPLAPI)
+    #error "DEEPAPI is required to compile this example"
+#endif
+
+
+#define __STR(X) #X
+#define STR(X) __STR(X)
 
 //缓存放请求内容
 char BUFF[10240];
@@ -44,7 +51,8 @@ int main(int argc,char **argv){
     CURLcode res;
     // url的请求头部分 放请求的密钥啥的 是一个链表
     struct curl_slist *headers = NULL; 
-    headers = curl_slist_append(headers, "Authorization: DeepL-Auth-Key e8ad9dbd-17a0-9e73-615b-1acac4947e08:fx");
+    headers = curl_slist_append(headers, STR(DEEPLAPI));
+    // printf(">>>>>>APi=%s\n", STR(DEEPLAPI));
     
 
     curl_global_init(CURL_GLOBAL_DEFAULT);

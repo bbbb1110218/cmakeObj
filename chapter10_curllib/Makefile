@@ -1,6 +1,6 @@
 
 default:
-	cmake -S. -Bbuild 
+	cmake -S. -Bbuild -D
 
 
 clean:

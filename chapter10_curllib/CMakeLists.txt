@@ -73,28 +73,28 @@ if(LINUX)
     set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/app")
 endif()
 
-add_executable(deepl)
+add_executable(deepll)
 
-target_compile_definitions(deepl
+target_compile_definitions(deepll
     PRIVATE
         DEEPLAPI=$ENV{DEEPLAPI}
 )
 
-target_sources(deepl
+target_sources(deepll
     PRIVATE
         ${CMAKE_SOURCE_DIR}/src/deepl.c
 )
 
-target_include_directories(deepl
+target_include_directories(deepll
     PRIVATE
         ${CURL_INCLUDE_DIRS}
 )
 target_link_libraries(
-    deepl 
+    deepll 
     PRIVATE
         ${CURL_LIBRARIES}
 )
 
-install(TARGETS deepl
+install(TARGETS deepll
     RUNTIME DESTINATION bin 
 )

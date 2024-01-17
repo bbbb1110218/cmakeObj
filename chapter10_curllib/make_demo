@@ -1,6 +1,6 @@
 
 default:
-	cmake -S. -Bbuild -DDEEPLAPI="Authorization: DeepL-Auth-Key e8ad9dbd-17a0-9e73-615b-1acac4947e08:fx"
+	cmake -S. -Bbuild -DCMAKE_BUILD_TYPE:STRING=Release -DDEEPLAPI="Authorization: DeepL-Auth-Key e8ad9dbd-17a0-9e73-615b-1acac4947e08:fx"
 
 
 clean:

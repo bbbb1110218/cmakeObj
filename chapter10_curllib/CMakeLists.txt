@@ -38,7 +38,7 @@ find_package(CURL REQUIRED)
 # )
 
 # TODO 设置要编译的文件  有函数可以直接编译全部
-set(SRC_LIST main.c)
+set(SRC_LIST main.c detectedLanguageTrans.c deepLcurl.c)
 
 
 function(MAKE_EXEC ARG)
@@ -121,7 +121,7 @@ target_compile_definitions(deepl
 
 target_sources(deepl
     PRIVATE
-        ${CMAKE_SOURCE_DIR}/src/deepLcurl.c
+        ${CMAKE_SOURCE_DIR}/src/detectedLanguageTrans.c
 )
 
 target_include_directories(deepl

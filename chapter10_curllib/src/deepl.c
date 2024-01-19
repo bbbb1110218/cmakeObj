@@ -3,7 +3,7 @@
 #include <curl/curl.h>
 #include <stdlib.h>
 
-#if !defined(DEEPLAPI)
+#if !defined(URL_HEAD_INCLUDE_API)
     #error "DEEPAPI is required to compile this example"
 #endif
 
@@ -63,12 +63,12 @@ int main(int argc,char **argv){
     CURLcode res;
     // url的请求头部分 放请求的密钥啥的 是一个链表
     struct curl_slist *headers = NULL; 
-    headers = curl_slist_append(headers, STR(DEEPLAPI));
+    headers = curl_slist_append(headers, STR(URL_HEAD_INCLUDE_API));
     if(headers ==NULL){
         printf("headers is null\n");
         exit(1);
     }
-    // printf(">>>>>>APi=%s\n", STR(DEEPLAPI));
+    // printf(">>>>>>APi=%s\n", STR(URL_HEAD_INCLUDE_API));
     
 
     curl_global_init(CURL_GLOBAL_DEFAULT);

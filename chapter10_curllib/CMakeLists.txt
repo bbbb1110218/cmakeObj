@@ -17,21 +17,29 @@ find_package(CURL REQUIRED)
 set(SRC_LIST main.c deepl.c)
 
 
+
+#定义一个函数
 function(MAKE_EXEC ARG)
-# //获取文件名
+# //获取文件名称组件，可以通过参数不要后缀
     get_filename_component(EXEC_NAME ${ARG} NAME_WE)
     add_executable(${EXEC_NAME}.out src/${ARG})
+    
+    #目标添加头文件
     target_include_directories(${EXEC_NAME}.out
         PRIVATE
             ${CURL_INCLUDE_DIRS}
         )
+    
+    # 连接库
     target_link_libraries(${EXEC_NAME}.out
         PRIVATE
             ${CURL_LIBRARIES}
         )
+
+    #编译的时候添加预编译
     target_compile_definitions(${EXEC_NAME}.out
         PRIVATE
-            DEEPLAPI=${DEEPLAPI}
+            URL_HEAD_INCLUDE_API=${URL_HEAD_INCLUDE_API}
         )
 endfunction()
 
@@ -77,7 +85,7 @@ add_executable(deepll)
 
 target_compile_definitions(deepll
     PRIVATE
-        DEEPLAPI=$ENV{DEEPLAPI}
+        URL_HEAD_INCLUDE_API=$ENV{URL_HEAD_INCLUDE_API}
 )
 
 target_sources(deepll

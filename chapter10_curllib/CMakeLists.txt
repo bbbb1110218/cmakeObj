@@ -157,3 +157,19 @@ add_executable(UsingJansson src/pjson.c)
 target_link_libraries(UsingJansson PRIVATE jansson)
 
 
+if(APPLE)
+# curl的基本用法
+    add_executable(basicCurl.out src/basicCurl.c)
+    target_include_directories(basicCurl.out
+    PRIVATE
+        ${CURL_INCLUDE_DIRS}
+    )
+
+# 连接库
+target_link_libraries(basicCurl.out
+    PRIVATE
+        ${CURL_LIBRARIES}
+    )
+endif()
+
+

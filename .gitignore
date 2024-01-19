@@ -2,9 +2,11 @@ build/
 .vscode/
 .cache/
 .cache/
+delete/
 .del/
 .cmake-build-debug/
 cmake-build-debug/
 .idea/
 xcodeBuild
 chapter1/build2/.cmake/api/v1/query/client-vscode-cmake-lite/query.json
+chapter10_curllib/make_demo

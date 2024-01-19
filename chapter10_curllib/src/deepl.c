@@ -1,3 +1,10 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <curl/curl.h>
+#include <stdlib.h>
+
+// ...（省略了原始代码）
 #include <stdio.h>
 #include <string.h>
 #include <curl/curl.h>
@@ -6,6 +13,23 @@
 #if !defined(URL_HEAD_INCLUDE_API)
     #error "DEEPAPI is required to compile this example"
 #endif
+
+
+/**
+ * @file deepl.c
+ * @brief 使用DeepL API进行文本翻译的示例代码
+ *
+ * 该代码演示了如何使用DeepL API进行文本翻译。它接受命令行参数作为要翻译的文本，并根据文本的语言选择目标语言进行翻译。
+ * 该代码使用libcurl库进行HTTP请求，并使用DeepL API密钥进行身份验证。
+ *
+ * 使用方法：
+ *   deepl [要翻译的内容]
+ *
+ * 示例：
+ *   deepl "Hello, world!"
+ *
+ * 该代码还包括一个辅助函数isEnglish，用于检查给定的字符串是否为英文。
+ */
 
 
 #define __STR(X) #X

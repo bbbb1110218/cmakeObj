@@ -9,6 +9,7 @@ project(testCurl
 )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/app")
 
 # Find the CURL library
 find_package(CURL REQUIRED)

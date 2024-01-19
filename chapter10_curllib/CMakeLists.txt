@@ -144,3 +144,11 @@ foreach(VAR IN  ${CMAKE_MODULE_PATH})
     message(STATUS "VAR >>>>>>>>>> : ${VAR}")
     
 endforeach()
+
+# find_package(Jansson REQUIRED)
+
+
+add_executable(UsingJansson src/pjson.c)
+
+target_link_libraries(UsingJansson PRIVATE jannson)
+

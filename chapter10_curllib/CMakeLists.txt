@@ -2,6 +2,8 @@
 
 cmake_minimum_required(VERSION 3.21)
 
+include("$ENV{HOME}/app/cmake/.config.cmake")
+
 project(testCurl
     VERSION 0.0.1
     DESCRIPTION "C语言测试CURL库"
@@ -148,7 +150,10 @@ endforeach()
 # find_package(Jansson REQUIRED)
 
 
+
+
 add_executable(UsingJansson src/pjson.c)
 
-target_link_libraries(UsingJansson PRIVATE jannson)
+target_link_libraries(UsingJansson PRIVATE jansson)
+
 

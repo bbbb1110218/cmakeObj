@@ -57,8 +57,8 @@ int isEnglish(const char *str);
 //需要return respon char 个数，要不然curl 会出错
 size_t CallBackFun(void *respon,size_t one,size_t contentSize,void *userData);
 
-//递归一次
-const char * analysisDeeplJson(const char *resp);
+
+char * analysisDeeplJson(const char *resp);
 
 
 
@@ -144,15 +144,20 @@ RESPON *pdata=(RESPON *)malloc(sizeof(RESPON));
             fprintf(stderr,"curl_easy_perform() failed: %s\n",curl_easy_strerror(res));
 
         curl_easy_cleanup(curl);
-        if(pdata->data)
-            printf("get the respon:%s\n",pdata->data);
+        if(pdata->data){
+            // printf("get the respon:%s\n",pdata->data);
+            char *resData=analysisDeeplJson(pdata->data);
+            printf("%s\n",resData);
+            free(resData);
+        }
+
         else
             printf("respon save faild\n");
     }
     curl_global_cleanup();
     free(argBuff);
     // sprintf(stdout,"$s","\n");
-    printf("\n还需要解析json\n");
+    // printf("\n还需要解析json\n");
 
     return 0;
 }
@@ -185,7 +190,7 @@ size_t CallBackFun(void *respon,size_t one,size_t contentSize,void *userData){
 }
 
 //解析deep响应内容
-const char * analysisDeeplJson(const char *resp){
+char * analysisDeeplJson(const char *resp){
     //respon格式{"translations":[{"detected_source_language":"ZH","text":"field"}]}
     json_error_t error;
     json_t *root, *translations, *first_item, *text;
@@ -217,9 +222,15 @@ const char * analysisDeeplJson(const char *resp){
         return NULL;
     }
 
-    printf("text: %s\n", json_string_value(text));
+    // printf("text: %s\n", json_string_value(text));
 
+    int buffsize=strlen(json_string_value(text));
+  
+
+    char *value=(char *)malloc(1+strlen(json_string_value(text)));
+    memset(value,0,buffsize+1);
+    strcpy(value,json_string_value(text));
+    value[buffsize]='\0';
     json_decref(root);
-
-    return json_string_value(text);
+    return value;
 }

@@ -76,7 +76,7 @@ add_executable(deepll)
 # Set compile definitions for the deepll target
 target_compile_definitions(deepll
     PRIVATE
-        URL_HEAD_INCLUDE_API=$ENV{URL_HEAD_INCLUDE_API}
+        URL_HEAD_INCLUDE_API=${URL_HEAD_INCLUDE_API}
 )
 
 # Set source files for the deepll target

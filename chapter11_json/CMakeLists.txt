@@ -8,10 +8,10 @@ project(UsingJson
 
 set(CMAKE_PREFIX_PATH "/usr/local")
 
-find_package(Jansson REQUIRED)
+# find_package(Jansson REQUIRED)
 
 if(NOT Jansson_FOUND)
-    message(FATAL_ERROR "Jansson NOT found")
+    # message(FATAL_ERROR "Jansson NOT found")
 else()
     message(STATUS "Jansson found")
     message(STATUS "Jansson include dir: ${Jansson_INCLUDE_DIRS}")
@@ -38,3 +38,6 @@ endif()
 add_executable(UsingJson.out
     src/mainjson.c
 )
+
+target_link_libraries(UsingJson.out
+    jansson)

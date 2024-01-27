@@ -40,7 +40,14 @@ function(MAKE_EXEC ARG)
     target_link_libraries(${EXEC_NAME}.out
         PRIVATE
             ${CURL_LIBRARIES}
+
         )
+#链接jansson库
+    if(LINUX)
+        target_link_libraries(${EXEC_NAME}.out
+        PUBLIC
+		    jansson)
+    endif()
 
     #编译的时候添加预编译
     target_compile_definitions(${EXEC_NAME}.out
@@ -60,18 +67,20 @@ endforeach()
 # Get the absolute path of the main.c source file
 get_filename_component(SRC_FILE src/main.c ABSOLUTE)
 
-# Set the path for the preprocessed file
-set(PREPROCESS_FILE ${CMAKE_BINARY_DIR}/preprocess.c)
 
-# Create a custom command to preprocess the source file
-add_custom_command(
-    OUTPUT ${PREPROCESS_FILE}
-    COMMAND ${CMAKE_C_COMPILER} -E -P ${SRC_FILE} -o ${PREPROCESS_FILE} ${CURL_CFLAGS}
-    DEPENDS ${SRC_FILE}
-)
+#预处理文件
+    # Set the path for the preprocessed file
+    set(PREPROCESS_FILE ${CMAKE_BINARY_DIR}/preprocess.c)
 
-# Create a custom target for the preprocess command
-add_custom_target(preprocess DEPENDS ${PREPROCESS_FILE})
+    # Create a custom command to preprocess the source file
+    add_custom_command(
+        OUTPUT ${PREPROCESS_FILE}
+        COMMAND ${CMAKE_C_COMPILER} -E -P ${SRC_FILE} -o ${PREPROCESS_FILE} ${CURL_CFLAGS}
+        DEPENDS ${SRC_FILE}
+    )
+
+    # Create a custom target for the preprocess command
+    add_custom_target(preprocess DEPENDS ${PREPROCESS_FILE})
 
 # Create an executable target deepll
 add_executable(deepll)
@@ -99,6 +108,8 @@ target_link_libraries(
     deepll 
     PRIVATE
         ${CURL_LIBRARIES}
+    PUBLIC
+		jansson
 )
 
 # Install the deepll target to the bin directory

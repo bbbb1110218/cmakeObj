@@ -1,5 +1,5 @@
 
-DEEPAPI:="27fb772c-d742-6af2-931d-54f25ef67f7e:fx"
+DEEPAPI:="e8ad9dbd-17a0-9e73-615b-1acac4947e08:fx"
 
 deepAPI:=URL_HEAD_INCLUDE_API="Authorization: DeepL-Auth-Key $(DEEPAPI)"
 

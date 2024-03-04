@@ -9,7 +9,7 @@ project(testCurl
     DESCRIPTION "C语言测试CURL库"
     LANGUAGES C
 )
-
+set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_INSTALL_PREFIX "$ENV{HOME}/app")
 
@@ -39,7 +39,9 @@ function(MAKE_EXEC ARG)
     # 连接库
     target_link_libraries(${EXEC_NAME}.out
         PRIVATE
-            ${CURL_LIBRARIES}
+            ${CURL_LIBRARIES} 
+        PRIVATE 
+            jansson
         )
 
     #编译的时候添加预编译
@@ -99,9 +101,11 @@ target_link_libraries(
     deepll 
     PRIVATE
         ${CURL_LIBRARIES}
+    PRIVATE
+        jansson
 )
 
-# Install the deepll target to the bin directory
+# Install the deepll target to the bin 
 install(TARGETS deepll
     RUNTIME DESTINATION bin 
 )

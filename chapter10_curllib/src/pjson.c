@@ -1,6 +1,15 @@
 #include <jansson.h>
 #include <stdio.h>
 
+/**
+ * @file:测试jansson库,该库用于解析json数据 
+ * 
+ *
+ * @brief 
+ * 
+ * @return int 
+ */
+
 int main() {
     char *text = "{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}";
     json_error_t error;
